@@ -1,5 +1,5 @@
 {
-    "name": "haruno",
+    "name": "AuraBot",
     "version": "2.0.1",
     "description": "Customizable WhatsApp Bot",
     "main": "index.js",
@@ -17,16 +17,16 @@
     "keywords": [
         "termux-whatsapp-bot"
     ],
-    "homepage": "https://github.com/FadliDarmawan/haruno-md",
+    "homepage": "https://github.com/RFIunknown/AuraBot-md",
     "author": {
-        "name": "FadliDarmawan"
+        "name": "Rifai"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/FadliDarmawan/haruno-md.git"
+        "url": "git+https://github.com/RFIunknown/AuraBot-md.git"
     },
     "bugs": {
-        "url": "https://github.com/FadliDarmawan/haruno-md/issues"
+        "url": "https://github.com/RFIunknown/AuraBot-md/issues"
     },
     "license": "MIT",
     "dependencies": {
