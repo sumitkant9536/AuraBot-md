@@ -3,6 +3,7 @@ import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 
 global.owner = [
+  ['6281393227036', 'Rifai']
   ['628112958665', 'Fadli']
   // [number, dia creator/owner?, dia developer?]
 ] // Put your number here
@@ -27,14 +28,14 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.packname = 'Haruno'
-global.author = 'Fadli'
-global.image = 'https://telegra.ph/file/22cacf2d738f3732bf558.png'
-global.watermark = '© Haruno'
+global.packname = 'AuraBot'
+global.author = 'Rifai'
+global.image = 'https://telegra.ph/file/29f2d451412ae151a2dfb.jpg'
+global.watermark = '© AuraBot'
 global.wait = '「 ⏱️ 」Harap tunggu...'
 global.gambar = 'https://telegra.ph/file/22cacf2d738f3732bf558.png'
 
-global.multiplier = 40 // The higher, The harder levelup
+global.multiplier = 170 // The higher, The harder levelup
 
 let file = fileURLToPath(import.meta.url)
 watchFile(file, () => {
