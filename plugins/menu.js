@@ -7,10 +7,12 @@ const defaultMenu = {
   before: `
 ┌─〔 %me 〕
 ├ Hai, *%name!*
+├ Uptime *%uptime*
+├ Database *%totalreg*
 └────
 %readmore`.trimStart(),
   header: '┌─〔 %category 〕',
-  body: '├ %cmd %islimit %isPremium',
+  body: '├◉ %cmd %islimit %isPremium',
   footer: '└────\n',
   after: ``,
 }
@@ -453,18 +455,18 @@ function clockString(ms) {
 
 function ucapan() {
   const time = moment.tz('Asia/Jakarta').format('HH')
-  let res = "Selamat dinihari"
-  if (time >= 4) { 
-    res = "Ohayou!"
+  res = "Selamat dinihari"
+  if (time >= 4) {
+    res = "Selamat pagi"
   }
   if (time > 10) {
-    res = "Konnichiwa!"
+    res = "Selamat siang"
   }
   if (time >= 15) {
-    res = "Konnichiwa!"
+    res = "Selamat sore"
   }
   if (time >= 18) {
-    res = "Konbanwa!"
+    res = "Selamat malam"
   }
   return res
 }
