@@ -2,10 +2,9 @@ import fetch from 'node-fetch'
 let handler = async(m, { conn }) => {
     let teks = `
 ┌─「 Donasi 」
-├ GoPay: 628112958665
-├ Dana: 628112958665
-├ OVO: 628112958665
-├ Pulsa (XL): 6281943265086
+├ GoPay: 6281393227036
+├ Dana: 6281393227036
+├ Pulsa (Telkom): 6281393227036
 └────`.trim()
     const message = {
         image: { url: image},
@@ -16,7 +15,7 @@ let handler = async(m, { conn }) => {
             {
                 urlButton: {
                     displayText: 'Saweria',
-                    url: 'https://saweria.co/FadliStudio'
+                    url: 'Gak ada' 
                 }
             }, {
                 quickReplyButton: {
