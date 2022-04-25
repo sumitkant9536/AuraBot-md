@@ -31,7 +31,7 @@ Ketik *.join <link gc>* dan bot akan masuk ke group. setelah 12 jam trial bot ak
 Note: 1 orang hanya bisa memasukkan bot ke group sebanyak 1 kali.
 *1 Bulan/15.000*
 Hubungi owner jika ingin berlangganan/bertanya/membayar
-Pembayaran bisa melalui: Gopay, Dana, OVO, Pulsa (XL)
+Pembayaran bisa melalui: Gopay, Dana, Pulsa (Telkom) //Tambah Sendiri
 *Permanen/20.000*
 Hubungi owner jika ingin berlangganan/bertanya/membayar
 Note: tergantung slot
@@ -39,12 +39,12 @@ Note: tergantung slot
 Menjadi users premium dan anda dapat menggunakan fitur dengan tanpa batasan (tanpa limit) dan beberapa akses fitur khusus user premium.
 Users premium dapat memasukkan bot ke dalam group sebanyak 3 kali, bot akan otomatis keluar dari group setelah 1 bulan(30 hari).
 Silahkan kontak/hubungi owner jika mau mulai menyewa/berlangganan/ada yang mau di tanyakan.
-Pembayaran bisa melalui: Gopay, Dana, OVO, Pulsa (XL)
+Pembayaran bisa melalui: Gopay, Dana, Pulsa (Telkom) //Tambah Sendiri
 `, m, { contextInfo: {
     externalAdReply: {
-        sourceUrl: 'https://youtu.be/-tKVN2mAKRI',
+        sourceUrl: 'https://rfiunknown.github.io/dist/',
         title: 'Undang ke group',
-        body: 'Haruno Bot',
+        body: 'AuraBot',
         thumbnailUrl: gambar
         }
     }})
