@@ -14,25 +14,25 @@ export async function all(m) {
     function ucapan() {
         const time = moment.tz('Asia/Jakarta').format('HH')
         res = "Selamat dinihari"
-        if (time >= 4) { 
-            res = "Ohayou!"
+        if (time >= 4) {
+        res = "Selamat pagi"
         }
         if (time > 10) {
-            res = "Konnichiwa!"
+        res = "Selamat siang"
         }
         if (time >= 15) {
-            res = "Konnichiwa!"
+        res = "Selamat sore"
         }
         if (time >= 18) {
-            res = "Konbanwa!"
-        }
-        return res
+       res = "Selamat malam"
+       }
+       return res
     }
     let teks = `
 *Hi ${name}, ${ucapan()}*
-Perkenalkan aku adalah Haruno bot!
+Perkenalkan aku adalah AuraBot!
 
-Kamu bisa menggunakan Haruno untuk membuat sticker, mendownload video youtube, facebook, tiktok, instagram, atau hanya sekedar bersenang senang! Fitur selengkapnya tentang Haruno bisa di lihat di *.menu*
+Kamu bisa menggunakan AuraBot untuk membuat sticker, mendownload video youtube, facebook, tiktok, instagram, atau hanya sekedar bersenang senang! Fitur selengkapnya tentang Haruno bisa di lihat di *.menu*
 
 Kami tidak akan melakukan spam broadcast ke users.
 
@@ -41,15 +41,15 @@ Jika ada bug atau hal yang ingin ditanyakan silahkan menghubungi owner.
 Terimakasih!
 `.trim()
     const message = {
-        image: { url: 'https://telegra.ph/file/b32e52b09508f1737a760.jpg'},
-        jpegThumbnail: await(await fetch('https://telegra.ph/file/b32e52b09508f1737a760.jpg')).buffer(),
+        image: { url: 'https://telegra.ph/file/29f2d451412ae151a2dfb.jpg'},
+        jpegThumbnail: await(await fetch('https://telegra.ph/file/29f2d451412ae151a2dfb.jpg')).buffer(),
         caption: teks,
         footer: watermark,
         templateButtons: [
             {
                 urlButton: {
-                    displayText: 'Haruno\'s group',
-                    url: 'https://chat.whatsapp.com/Dqdjz7aSWJj0IyORAsdYom'
+                    displayText: 'AuraBot group',
+                    url: 'https://chat.whatsapp.com/BKUUviabCwFIr9pIRe9iuE'
                 }
             }, {
                 quickReplyButton: {
