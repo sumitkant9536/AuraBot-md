@@ -5,6 +5,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
    case 'wangy': 
    m.reply(await wangy(text))
    break
+   case 'wangy2': 
+   m.reply(await wangy(text))
+   break
    case 'nenen':
    m.reply(await nenen(text))
    break
@@ -16,9 +19,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
    break
 }
 }
-handler.help = ['wangy', 'nenen', 'simp', 'sherk']
+handler.help = ['wangy', 'wangy2', 'nenen', 'simp', 'sherk']
 handler.tags = ['anime']
 
-handler.command = /^(wangy|nenen|simp|sherk)$/i
+handler.command = /^(wangy|wangy2|nenen|simp|sherk)$/i
 
 module.exports = handler
