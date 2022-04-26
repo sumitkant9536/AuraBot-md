@@ -188,7 +188,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
               }, {
                 "title": "Group Official Harunobot",
                 "description": "Gabung untuk mendapatkan informasi mengenai bot atau sekedar meramaikan",
-                "rowId": `${_p}harunoff`
+                "rowId": `${_p}auragc`
               }],
               "title": "Informasi Bot"
             }, {
@@ -222,7 +222,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
             }, {
               "rows": [{
                 "title": `Anime`,
-                "description": "Some anime, manga, doujinshi stuff...",
+                "description": "Menu Anime, Manga, Doujin...",
                 "rowId": `${_p}? anime`
               }],
               "title": "─────「 5 」"
@@ -363,8 +363,8 @@ let handler = async (m, { conn, usedPrefix: _p, args, command, __dirname }) => {
           ]
           const listMessage = {
             title: `${ucapan()}, ${name}`.trim(),
-            text: "Berikut ini adalah daftar menu Haruno Bot.",
-            footer: "Silahkan tekan tombol \"Click Here\" untuk melihat sub-menu Haruno Bot.\n\nJika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada owner.",
+            text: "Berikut ini adalah daftar menu AuraBot.",
+            footer: "Silahkan tekan tombol \"Click Here\" untuk melihat sub-menu AuraBot.\n\nJika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada owner.",
             buttonText: "Click Here",
             sections
         }
