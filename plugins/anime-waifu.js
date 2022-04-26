@@ -8,6 +8,6 @@ let handler = async (m, { conn, usedPrefix }) => {
     conn.sendButton(m.chat, 'Waifu', watermark, json.url, [['Waifu', `${usedPrefix}waifu`]], m)
 }
 handler.help = ['waifu']
-handler.tags = ['internet']
+handler.tags = ['anime']
 handler.command = /^(waifu)$/i
 export default handler
