@@ -1,8 +1,8 @@
 # Haruno
 <a href = "https://github.com/FadliDarmawan/haruno-md"><img src = "https://cardivo.vercel.app/api?name=Haruno&description=Haruno,%20Bot%20WhatsApp%20multi%20device.%20Created%20by%20Nurutomo,%20BochilGaming,%20dan%20FadliDarmawan.&image=https://telegra.ph/file/196b5f6f24ccdc6805021.jpg?cb=20200606024545&usqp=CAU&usqp=CAU&backgroundColor=%23ecf0f1&github=FadliDarmawan&pattern=topography&colorPattern=%23eaeaea"/><a>
 
-### Group Official Haruno
-[![Grup WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/Dqdjz7aSWJj0IyORAsdYom)
+### Group Official AuraBot
+[![Grup WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)]([https://chat.whatsapp.com/Dqdjz7aSWJj0IyORAsdYom](https://chat.whatsapp.com/BKUUviabCwFIr9pIRe9iuE))
 
 ### Deploy to Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/RFIunknown/AuraBot-md)
@@ -11,9 +11,6 @@
       <img src = "https://telegra.ph/file/196b5f6f24ccdc6805021.jpg" width="35%" style="margin-left: auto;margin-right: auto;display: block;">
 </p>
 
-## Donate and Support me
-
-Donate me via [`Saweria!`](https://saweria.co/FadliStudio)
 
 ## FOR TERMUX USER
 ```bash
@@ -156,10 +153,3 @@ conn.sendButton(m.chat, 'Hello world!', '@BochilGaming', 'https://github.com/Boc
       null, { asLocation: true }
 )
 ```
----------
-
-
- [![Nurutomo](https://github.com/Nurutomo.png?size=100)](https://github.com/Nurutomo) | [![Istikmal](https://github.com/BochilGaming.png?size=150)](https://github.com/BochilGaming) | [![Fadli](https://github.com/FadliDarmawan.png?size=100)](https://github.com/FadliDarmawan) | [![Rifai](https://github.com/RFIunknown.png?size=100)](https://github.com/RFIunknown)
-----|----|----|----
-[Nurutomo](https://github.com/Nurutomo) | [Istikmal](https://github.com/BochilGaming) | [Fadli](https://github.com/FadliDarmawan) | [Rifai](https://github.com/RFIunknown)
- Penulis / Pencipta | SC owner | Pengembang ulang | Pengembang ulang
