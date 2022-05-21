@@ -1,45 +1,31 @@
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
-import './config.js';
-
-import { createRequire } from "module"; // Bring in the ability to create the 'require' method
-import path, { join } from 'path'
-import { fileURLToPath, pathToFileURL } from 'url'
-import { platform } from 'process'
-global.__filename = function filename(pathURL = import.meta.url, rmPrefix = platform !== 'win32') { return rmPrefix ? /file:\/\/\//.test(pathURL) ? fileURLToPath(pathURL) : pathURL : pathToFileURL(pathURL).toString() }; global.__dirname = function dirname(pathURL) { return path.dirname(global.__filename(pathURL, true)) }; global.__require = function require(dir = import.meta.url) { return createRequire(dir) }
-
-import * as ws from 'ws';
-import {
-  readdirSync,
-  statSync,
-  unlinkSync,
-  existsSync,
-  readFileSync,
-  watch
-} from 'fs';
-import yargs from 'yargs';
-import { spawn } from 'child_process';
-import lodash from 'lodash';
-import syntaxerror from 'syntax-error';
-import { tmpdir } from 'os';
-import { format } from 'util';
-import { makeWASocket, protoType, serialize } from './lib/simple.js';
-import { Low, JSONFile } from 'lowdb';
-import pino from 'pino';
-import {
-  mongoDB,
-  mongoDBV2
-} from './lib/mongoDB.js';
+require('./config')
 const {
   useSingleFileAuthState,
   DisconnectReason
-} = await import('@adiwajshing/baileys')
+} = require('@adiwajshing/baileys')
+const { generate } = require('qrcode-terminal')
+const WebSocket = require('ws')
+const path = require('path')
+const fs = require('fs')
+const yargs = require('yargs/yargs')
+const cp = require('child_process')
+const _ = require('lodash')
+const syntaxerror = require('syntax-error')
+const P = require('pino')
+const os = require('os')
+const chalk = require('chalk')
+let simple = require('./lib/simple')
+var low
+try {
+  low = require('lowdb')
+} catch (e) {
+  low = require('./lib/lowdb')
+}
+const { Low, JSONFile } = low
+const mongoDB = require('./lib/mongoDB')
 
-const { CONNECTING } = ws
-const { chain } = lodash
-const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
-
-protoType()
-serialize()
+simple.protoType()
 
 global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name] } : {}) })) : '')
 // global.Fn = function functionCallBack(fn, ...args) { return fn.call(global.conn, ...args) }
@@ -47,31 +33,25 @@ global.timestamp = {
   start: new Date
 }
 
-const __dirname = global.__dirname(import.meta.url)
+const PORT = process.env.PORT || 3000
 
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
+// console.log({ opts })
 global.prefix = new RegExp('^[' + (opts['prefix'] || '‎xzXZ/i!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']')
 
 global.db = new Low(
   /https?:\/\//.test(opts['db'] || '') ?
-    new cloudDBAdapter(opts['db']) : /mongodb(\+srv)?:\/\//i.test(opts['db']) ?
-      (opts['mongodbv2'] ? new mongoDBV2(opts['db']) : new mongoDB(opts['db'])) :
+    new cloudDBAdapter(opts['db']) : /mongodb/.test(opts['db']) ?
+      new mongoDB(opts['db']) :
       new JSONFile(`${opts._[0] ? opts._[0] + '_' : ''}database.json`)
 )
-
-
 global.DATABASE = global.db // Backwards Compatibility
 global.loadDatabase = async function loadDatabase() {
-  if (global.db.READ) return new Promise((resolve) => setInterval(async function () {
-    if (!global.db.READ) {
-      clearInterval(this)
-      resolve(global.db.data == null ? global.loadDatabase() : global.db.data)
-    }
-  }, 1 * 1000))
+  if (global.db.READ) return new Promise((resolve) => setInterval(function () { (!global.db.READ ? (clearInterval(this), resolve(global.db.data == null ? global.loadDatabase() : global.db.data)) : null) }, 1 * 1000))
   if (global.db.data !== null) return
   global.db.READ = true
-  await global.db.read().catch(console.error)
-  global.db.READ = null
+  await global.db.read()
+  global.db.READ = false
   global.db.data = {
     users: {},
     chats: {},
@@ -81,75 +61,74 @@ global.loadDatabase = async function loadDatabase() {
     settings: {},
     ...(global.db.data || {})
   }
-  global.db.chain = chain(global.db.data)
+  global.db.chain = _.chain(global.db.data)
 }
 loadDatabase()
 
+// if (opts['cluster']) {
+//   require('./lib/cluster').Cluster()
+// }
 global.authFile = `${opts._[0] || 'session'}.data.json`
+global.isInit = !fs.existsSync(authFile)
 const { state, saveState } = useSingleFileAuthState(global.authFile)
 
 const connectionOptions = {
   printQRInTerminal: true,
   auth: state,
-  // logger: pino({ level: 'trace' })
+  logger: P({ level: 'silent'}),
+  version: [2, 2204, 13],
+  browser: ['AuraBot', 'IOS', '4.1.0']
 }
 
-global.conn = makeWASocket(connectionOptions)
-conn.isInit = false
+global.conn = simple.makeWASocket(connectionOptions)
 
 if (!opts['test']) {
-  setInterval(async () => {
-    if (global.db.data) await global.db.write().catch(console.error)
-    if (opts['autocleartmp']) try {
-      clearTmp()
-
-    } catch (e) { console.error(e) }
-  }, 60 * 1000)
+  if (global.db) setInterval(async () => {
+    if (global.db.data) await global.db.write()
+    if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp'], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '3', '-type', 'f', '-delete'])))
+  }, 30 * 1000)
 }
-if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
-
-
-function clearTmp() {
-  const tmp = [tmpdir(), join(__dirname, './tmp')]
-  const filename = []
-  tmp.forEach(dirname => readdirSync(dirname).forEach(file => filename.push(join(dirname, file))))
-  return filename.map(file => {
-    const stats = statSync(file)
-    if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 3)) return unlinkSync(file) // 3 minutes
-    return false
-  })
-}
+if (opts['big-qr'] || opts['server']) conn.ev.on('qr', qr => generate(qr, { small: false }))
+if (opts['server']) require('./server')(global.conn, PORT)
 
 async function connectionUpdate(update) {
-  const { connection, lastDisconnect, isNewLogin } = update
-  if (isNewLogin) conn.isInit = true
-  const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
-  if (code && code !== DisconnectReason.loggedOut && conn?.ws.readyState !== CONNECTING) {
-    console.log(await global.reloadHandler(true).catch(console.error))
-    global.timestamp.connect = new Date
+  const { connection, lastDisconnect } = update
+  if (connection == 'connecting') console.log(chalk.redBright('🕛 Mengaktifkan Bot, Harap tunggu sebentar...'))
+  if (connection == 'open') {
+      console.log(chalk.green('Connected✅'))
+      await conn.hehe("6281393227036@s.whatsapp.net", global.ftoli)
   }
-  if (global.db.data == null) loadDatabase()
+  if (connection == 'close') console.log(chalk.red('⏹️Koneksi berhenti dan mencoba menghubungkan kembali...'))
+  global.timestamp.connect = new Date
+  if (lastDisconnect && lastDisconnect.error && lastDisconnect.error.output && lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut && conn.ws.readyState !== WebSocket.CONNECTING) {
+    console.log(global.reloadHandler(true))
+  }
+  if (global.db.data == null) await loadDatabase()
+  //console.log(JSON.stringify(update, null, 4))
 }
 
 
 process.on('uncaughtException', console.error)
 // let strQuot = /(["'])(?:(?=(\\?))\2.)*?\1/
 
-let isInit = true;
-let handler = await import('./handler.js')
-global.reloadHandler = async function (restatConn) {
-  try {
-    const Handler = await import(`./handler.js?update=${Date.now()}`).catch(console.error)
-    if (Object.keys(Handler || {}).length) handler = Handler
-  } catch (e) {
-    console.error(e)
-  }
+const imports = (path) => {
+  path = require.resolve(path)
+  let modules, retry = 0
+  do {
+    if (path in require.cache) delete require.cache[path]
+    modules = require(path)
+    retry++
+  } while ((!modules || (Array.isArray(modules) || modules instanceof String) ? !(modules || []).length : typeof modules == 'object' && !Buffer.isBuffer(modules) ? !(Object.keys(modules || {})).length : true) && retry <= 10)
+  return modules
+}
+let isInit = true
+global.reloadHandler = function (restatConn) {
+  let handler = imports('./handler')
   if (restatConn) {
-    const oldChats = global.conn.chats
     try { global.conn.ws.close() } catch { }
-    conn.ev.removeAllListeners()
-    global.conn = makeWASocket(connectionOptions, { chats: oldChats })
-    isInit = true
+    global.conn = {
+      ...global.conn, ...simple.makeWASocket(connectionOptions)
+    }
   }
   if (!isInit) {
     conn.ev.off('messages.upsert', conn.handler)
@@ -168,12 +147,17 @@ global.reloadHandler = async function (restatConn) {
   conn.sSubject = 'Judul grup telah diubah ke \n@subject'
   conn.sIcon = 'Icon grup telah diubah!'
   conn.sRevoke = 'Link group telah diubah ke \n@revoke'
-  conn.handler = handler.handler.bind(global.conn)
-  conn.participantsUpdate = handler.participantsUpdate.bind(global.conn)
-  conn.groupsUpdate = handler.groupsUpdate.bind(global.conn)
-  conn.onDelete = handler.deleteUpdate.bind(global.conn)
-  conn.connectionUpdate = connectionUpdate.bind(global.conn)
-  conn.credsUpdate = saveState.bind(global.conn)
+  conn.sAnnounceOn = 'Group telah di tutup!\nsekarang hanya admin yang dapat mengirim pesan.'
+  conn.sAnnounceOff = 'Group telah di buka!\nsekarang semua peserta dapat mengirim pesan.'
+  conn.sRestrictOn = 'Edit Info Grup di ubah ke hanya admin!'
+  conn.sRestrictOff = 'Edit Info Grup di ubah ke semua peserta!'
+
+  conn.handler = handler.handler.bind(conn)
+  conn.participantsUpdate = handler.participantsUpdate.bind(conn)
+  conn.groupsUpdate = handler.groupsUpdate.bind(conn)
+  conn.onDelete = handler.delete.bind(conn)
+  conn.connectionUpdate = connectionUpdate.bind(conn)
+  conn.credsUpdate = saveState.bind(conn)
 
   conn.ev.on('messages.upsert', conn.handler)
   conn.ev.on('group-participants.update', conn.participantsUpdate)
@@ -185,62 +169,54 @@ global.reloadHandler = async function (restatConn) {
   return true
 }
 
-const pluginFolder = global.__dirname(join(__dirname, './plugins/index'))
-const pluginFilter = filename => /\.js$/.test(filename)
+let pluginFolder = path.join(__dirname, 'plugins')
+let pluginFilter = filename => /\.js$/.test(filename)
 global.plugins = {}
-async function filesInit() {
-  for (let filename of readdirSync(pluginFolder).filter(pluginFilter)) {
-    try {
-      let file = global.__filename(join(pluginFolder, filename))
-      const module = await import(file)
-      global.plugins[filename] = module.default || module
-    } catch (e) {
-      conn.logger.error(e)
-      delete global.plugins[filename]
-    }
+for (let filename of fs.readdirSync(pluginFolder).filter(pluginFilter)) {
+  try {
+    global.plugins[filename] = require(path.join(pluginFolder, filename))
+  } catch (e) {
+    conn.logger.error(e)
+    delete global.plugins[filename]
   }
 }
-filesInit().then(_ => console.log(Object.keys(global.plugins))).catch(console.error)
-
-global.reload = async (_ev, filename) => {
+console.log(Object.keys(global.plugins))
+global.reload = (_ev, filename) => {
   if (pluginFilter(filename)) {
-    let dir = global.__filename(join(pluginFolder, filename), true)
-    if (filename in global.plugins) {
-      if (existsSync(dir)) conn.logger.info(` updated plugin - '${filename}'`)
+    let dir = path.join(pluginFolder, filename)
+    if (dir in require.cache) {
+      delete require.cache[dir]
+      if (fs.existsSync(dir)) conn.logger.info(`re require plugin '${filename}'`)
       else {
-        conn.logger.warn(`deleted plugin - '${filename}'`)
+        conn.logger.warn(`deleted plugin '${filename}'`)
         return delete global.plugins[filename]
       }
-    } else conn.logger.info(`new plugin - '${filename}'`)
-    let err = syntaxerror(readFileSync(dir), filename, {
-      sourceType: 'module',
-      allowAwaitOutsideFunction: true
-    })
-    if (err) conn.logger.error(`syntax error while loading '${filename}'\n${format(err)}`)
+    } else conn.logger.info(`requiring new plugin '${filename}'`)
+    let err = syntaxerror(fs.readFileSync(dir), filename)
+    if (err) conn.logger.error(`syntax error while loading '${filename}'\n${err}`)
     else try {
-      const module = (await import(`${global.__filename(dir)}?update=${Date.now()}`))
-      global.plugins[filename] = module.default || module
+      global.plugins[filename] = require(dir)
     } catch (e) {
-      conn.logger.error(`error require plugin '${filename}\n${format(e)}'`)
+      conn.logger.error(e)
     } finally {
       global.plugins = Object.fromEntries(Object.entries(global.plugins).sort(([a], [b]) => a.localeCompare(b)))
     }
   }
 }
 Object.freeze(global.reload)
-watch(pluginFolder, global.reload)
-await global.reloadHandler()
+fs.watch(path.join(__dirname, 'plugins'), global.reload)
+global.reloadHandler()
 
 // Quick Test
 async function _quickTest() {
   let test = await Promise.all([
-    spawn('ffmpeg'),
-    spawn('ffprobe'),
-    spawn('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-filter_complex', 'color', '-frames:v', '1', '-f', 'webp', '-']),
-    spawn('convert'),
-    spawn('magick'),
-    spawn('gm'),
-    spawn('find', ['--version'])
+    cp.spawn('ffmpeg'),
+    cp.spawn('ffprobe'),
+    cp.spawn('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-filter_complex', 'color', '-frames:v', '1', '-f', 'webp', '-']),
+    cp.spawn('convert'),
+    cp.spawn('magick'),
+    cp.spawn('gm'),
+    cp.spawn('find', ['--version'])
   ].map(p => {
     return Promise.race([
       new Promise(resolve => {
@@ -264,7 +240,7 @@ async function _quickTest() {
     gm,
     find
   }
-  // require('./lib/sticker').support = s
+  require('./lib/sticker').support = s
   Object.freeze(global.support)
 
   if (!s.ffmpeg) conn.logger.warn('Please install ffmpeg for sending videos (pkg install ffmpeg)')
@@ -275,3 +251,4 @@ async function _quickTest() {
 _quickTest()
   .then(() => conn.logger.info('Quick Test Done'))
   .catch(console.error)
+  
