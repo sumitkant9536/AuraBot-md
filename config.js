@@ -48,6 +48,7 @@ global.benar = '_*Benar✅*_'
 global.salah = '_*Salah❌*_'
 global.dikit = "dikit lagi, semangat ya :')"
 global.wm = '© AuraBot'
+global.pp = 'https://telegra.ph/file/39bbded9693c9338069fd.jpg'
 
 global.multiplier = 100 // The higher, The harder levelup
 
