@@ -31,9 +31,9 @@ global.APIKeys = { // APIKey Here
   'https://api.adiofficial.xyz': 'apikey lu'
 }
 
-//global.wm =
-global.wait = '_*𝐬𝐞𝐝𝐚𝐧𝐠 𝐝𝐢 𝐩𝐫𝐨𝐬𝐞𝐬 ...*_'
-global.eror = '_*мααƒ ѕєяνєя тι∂αк ѕтαвιℓ..*_'
+//Global Wait And Error
+global.wait = '「 ⏱️ 」Harap tunggu...'
+global.eror = '「❗」Server ERROR!'
 
 //========Url Template Buttons=========//
 global.dtu = 'ɪɴꜱᴛᴀɢʀᴀᴍ'
@@ -47,7 +47,7 @@ global.phn = '+62 813-9322-7036'
 global.benar = '_*Benar✅*_'
 global.salah = '_*Salah❌*_'
 global.dikit = "dikit lagi, semangat ya :')"
-global.wm = 'AuraBot'
+global.wm = '© AuraBot'
 
 global.multiplier = 100 // The higher, The harder levelup
 
