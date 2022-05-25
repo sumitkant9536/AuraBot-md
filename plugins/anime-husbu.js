@@ -1,17 +1,15 @@
-let handler = async (m, { conn, usedPrefix, command }) => {
-  let res = await fetch('https://raw.githubusercontent.com/ArugaZ/grabbed-results/main/random/anime/husbu.txt')
-  let txt = await res.text()
-
-  let arr = txt.split('\n')
-  let cita = arr[Math.floor(Math.random() * arr.length)]
-  await conn.sendBI(m.chat, `Nihh husbunya @${m.sender.split('@')[0]}`, wm, cita, [[`Next`, `${usedPrefix}${command}`]], m, { mentions: [m.sender], jpegThumbnail: await (await fetch(cita)).buffer() })
+let fetch = require('node-fetch')
+let handler = async (m, { conn }) => {
+  let res = await fetch('https://rest-beni.herokuapp.com/api/randomimage/husbu')
+  if (!res.ok) throw 'Error Website sedang down'
+  let json = await res.json()
+  if (!json.url) throw 'Error!'
+  conn.sendFile(m.chat, json.url, '', 'istri gweh', m, 0, { thumbnail: Buffer.alloc(0) })
 }
+handler.help = ['waifu']
 handler.tags = ['anime']
-handler.help = ['husbu']
-handler.command = /^(husbu)$/i
+handler.command = /^(waifu)$/i
 
-handler.owner = false
-handler.register = false
-handler.limit = false
+handler.limit = true
 
 module.exports = handler
