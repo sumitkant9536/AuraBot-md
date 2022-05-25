@@ -5,7 +5,7 @@ let handler = m => m
 
 handler.all = async function (m) {
     if (m.chat.endsWith('status@broadcast')) {
-        console.log('sw cok')
+        console.log('Status Wangsaf')
     }
     let { isBanned } = db.data.chats[m.chat]
     let { banned } = db.data.users[m.sender]
@@ -23,8 +23,8 @@ handler.all = async function (m) {
     // ketika ada yang invite/kirim link grup di chat pribadi
     if ((m.mtype === 'groupInviteMessage' || m.text.startsWith('https://chat') || m.text.startsWith('Buka tautan ini')) && !m.isBaileys && !m.isGroup) {
         this.sendButton(m.chat, `┌「 *Undang Bot ke Grup* 」
-├ 7 Hari / Rp 5,000
-├ 30 Hari / Rp 15,000
+├ 7 Hari / Rp 10,000
+├ 30 Hari / Rp 20,000
 └────
 `.trim(), wm, 'Pemilik Bot', '.owner', m)
     }
