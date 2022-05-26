@@ -8,6 +8,3 @@ let handler = async (m, { conn }) => {
 handler.command = /^hint$/i
 
 module.exports = handler
-© 2022 GitHub, Inc.
-Terms
-P
