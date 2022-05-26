@@ -237,14 +237,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         global.dfail('owner', m, conn)
         throw false
       }
-      setting.jadibot = isEnable
-      break
-    case 'clear':
-      isAll = true
-      if (!isOwner) {
-        global.dfail('owner', m, conn)
-        throw false
-      }
       chat.clear = isEnable
       break
     case 'autoread':
