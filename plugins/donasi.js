@@ -1,35 +1,15 @@
-let fetch from 'node-fetch'
-let handler = async(m, { conn }) => {
-    let teks = `
-┌─「 Donasi 」
-├ GoPay: 628112958665
-├ Dana: 628112958665
-├ OVO: 628112958665
-├ Pulsa (XL): 6281943265086
-└────`.trim()
-    const message = {
-        image: { url: image},
-        jpegThumbnail: await(await fetch(image)).buffer(),
-        caption: teks,
-        footer: watermark,
-        templateButtons: [
-            {
-                urlButton: {
-                    displayText: 'Saweria',
-                    url: 'https://saweria.co/FadliStudio'
-                }
-            }, {
-                quickReplyButton: {
-                    displayText: 'Owner',
-                    id: '.owner'
-                }
-            }
-        ]
-    }
-    return await conn.sendMessage(m.chat, message, { quoted: m })
-}
+let handler = async (m, { conn, usedPrefix }) => conn.sendButton(m.chat, `
+╭─「 Donasi • Dana 」
+│ • Telkomsel [081393227036]
+│ • Dana  [081393227036]
+│ • Qris  [Chat owner]
+╰────
+╭─「 *OWNER* 」
+│ > Ingin donasi? Wa.me/6281393227036
+╰────
+`.trim(), wm, 'Menu', usedPrefix + 'menu', m) // Tambah sendiri kalo mau
 handler.help = ['donasi']
-handler.tags = ['info']
+handler.tags = ['about']
 handler.command = /^dona(te|si)$/i
 
-export default handler
+module.exports = handler
