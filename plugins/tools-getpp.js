@@ -12,7 +12,7 @@ let handler = async (m, { conn, command }) => {
   }
 }
 handler.help = ['getpp <@tag/reply>']
-handler.tags = ['fun']
+handler.tags = ['tools']
 handler.command = /^(getpp|getpic?t?)$/i
 
 module.exports = handler
