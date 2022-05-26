@@ -17,7 +17,7 @@ Ketik ${usedPrefix}hint untuk bantuan
 Bonus: ${poin} XP
     `.trim()
   conn.tebakgambar[id] = [
-    await conn.sendButtonImg(m.chat, await (await fetch(json.img)).buffer(), caption, watermark, 'Bantuan', '.hint', m)
+    await conn.sendButtonImg(m.chat, await (await fetch(json.img)).buffer(), caption, wm, 'Bantuan', '.hint', m)
     ,
     json, poin,
     setTimeout(async () => {
