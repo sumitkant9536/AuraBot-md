@@ -17,9 +17,9 @@ let handler = async (m, { conn, isROwner, usedPrefix, command, text }) => {
 }
 
 handler.help = ['getfile'].map(v => v + ' <text>')
-handler.tags = ['host']
+handler.tags = ['owner']
 handler.command = /^(getfile|gf)$/i
 
-handler.rowner = true
+handler.owner = true
 
 module.exports = handler
