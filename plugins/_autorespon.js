@@ -23,10 +23,21 @@ handler.all = async function (m) {
     
     // ketika ada yang invite/kirim link grup di chat pribadi
     if ((m.mtype === 'groupInviteMessage' || m.text.startsWith('https://chat') || m.text.startsWith('Buka tautan ini')) && !m.isBaileys && !m.isGroup) {
-        this.sendButton(m.chat, `┌「 *Undang Bot ke Grup* 」
-├ 7 Hari / Rp 10,000
-├ 30 Hari / Rp 20,000
-└────
+        this.send2Button(m.chat, `╭━━•✵ ⃟  ⃟  ⃟✵•━━━━━━━━━━━━━╮
+┃╭┈─────────────⩵꙰ཱི࿐
+┃╰──Sewa Bot!*──➤ ↶↷*
+┃
+┃ *⸙ Gratis 12 jam percobaan untuk grup! Agar bot tetap berada di grup anda dengan waktu lebih lama silahkan sewa bot dengan harga dibawah ini
+┃ *⸙ ુོ➪ Info untuk Gabung premium :
+┃ *〲 Rp. 5k = 1 minggu Premium
+┃ *〲 Rp. 7k = 2 minggu Premium
+┃ *〲 Rp. 15k = 1 bulan Premium
+┃ *〲 Rp. 20k = 2 bulan Premium
+┃ *〲 Rp. 30k = 3 bulan Premium
+┃ *〲 Rp. 40k = 4 bulan Premium
+┃ *〲 Rp. 50k = VIP PERMANEN
+┃ 
+╰•°°°🕊°°°°°🕊°°°°°°🕊°°°°°°°°
 `.trim(), wm, 'Pemilik Bot', '.owner', m)
     }
 
