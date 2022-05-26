@@ -25,7 +25,6 @@ let handler = async (m, { conn }) => {
 ├ ${anticall ? '✅' : '❌'} *Anti Call*
 ├ ${backup ? '✅' : '❌'} *Auto Backup DB*
 ├ ${groupOnly ? '✅' : '❌'} *Mode Grup*
-├ ${jadibot ? '✅' : '❌'} *Jadi Bot*
 ├ ${tag ? '✅' : '❌'} *Anti Tag Owner*
 ├ ${self ? '✅' : '❌'} *Mode Self*
 └────
