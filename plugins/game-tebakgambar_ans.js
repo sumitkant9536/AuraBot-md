@@ -12,7 +12,7 @@ handler.before = async function (m) {
     if (m.text.toLowerCase() == json.jawaban.toLowerCase()) {
       db.data.users[m.sender].exp += this.tebakgambar[id][2]
       db.data.users[m.sender].dailyReward += 1
-      await this.sendButton(m.chat, `*Benar!* +${this.tebakgambar[id][2]} XP`, watermark, 'Tebak Gambar', '.tebakgambar', m)
+      await this.sendButton(m.chat, `*Benar!* +${this.tebakgambar[id][2]} XP`, wm, 'Tebak Gambar', '.tebakgambar', m)
       clearTimeout(this.tebakgambar[id][3])
       delete this.tebakgambar[id]
     } else if (similarity(m.text.toLowerCase(), json.jawaban.toLowerCase().trim()) >= threshold) m.reply(`*Dikit Lagi!*`)
