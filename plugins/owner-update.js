@@ -10,6 +10,6 @@ handler.help = ['update']
 handler.tags = ['host']
 handler.command = /^(update|uo?p?|uodate)$/i //sedia payung sebelum hujan meteor 
 
-handler.rowner = true
+handler.owner = true
 
 module.exports = handler
