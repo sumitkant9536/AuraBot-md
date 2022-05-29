@@ -42,7 +42,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'database': 'Database',
     'vote': 'Voting',
     'absen': 'Absen',
-    'quran': 'Al Qur\'an',
+    'islamic': 'Islamic',
     'audio': 'Pengubah Suara',
     'nsfw': 'Nsfw',
     'info': 'Info',
@@ -265,7 +265,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
           
           { title: "Islami",
             "description": "Menu Islami",
-           rowId: `${_p}? quran` },
+           rowId: `${_p}? islamic` },
           
           { title: 'Pengubah Suara',
            "description": "Menu Pengubah Suara",
