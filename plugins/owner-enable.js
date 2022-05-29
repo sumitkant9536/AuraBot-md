@@ -231,7 +231,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       chat.nsfw = isEnable
       break
-    case 'jadibot':
+    case 'nsfw':
       isAll = true
       if (!isOwner) {
         global.dfail('owner', m, conn)
