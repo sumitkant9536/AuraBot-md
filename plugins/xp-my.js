@@ -11,10 +11,10 @@ Limit: *${user.limit}*
 EXP: *${user.exp}*
 Level: *${user.level}*
 Role: *${user.role}*
-Daily Reward: *${user.dailyReward}*
+Banned: *${user.banned}*
 Joincount: *${user.joincount}*
 `.trim()
-    let pp = await(await fetch('https://telegra.ph/file/39bbded9693c9338069fd.jpg')).buffer()
+    let pp = await(await fetch('http://telegra.ph/file/29f2d451412ae151a2dfb.jpg')).buffer()
     try {
       pp = await ( await fetch(await conn.getProfilePicture(who))).buffer()
     } catch (e) {
@@ -23,7 +23,7 @@ Joincount: *${user.joincount}*
         externalAdReply: {
           sourceUrl: 'https://youtu.be/-tKVN2mAKRI',
           title: user.name,
-          body: 'Haruno Bot',
+          body: 'AuraBot',
           thumbnail: pp
         }
     }})
