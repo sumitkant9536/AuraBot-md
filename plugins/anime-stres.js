@@ -19,7 +19,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
    break
 }
 }
-handler.help = ['wangy', 'nenen', 'simp', 'sherk']
+handler.help = ['wangy', 'nenen', 'simp', 'sherk', 'wangy2']
 handler.tags = ['anime']
 
 handler.command = /^(wangy|nenen|simp|sherk|wangy2)$/i
