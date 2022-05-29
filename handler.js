@@ -120,7 +120,7 @@ module.exports = {
                     if (!('antitroli' in chat)) chat.antitroli = false
                     if (!('antivirtex' in chat)) chat.antivirtex = false
                     if (!('viewonce' in chat)) chat.viewonce = true
-                    if (!('nsfw' in chat)) chat.nsfw = false
+                    if (!('nsfw' in chat)) chat.nsfw = true
                     if (!('simi' in chat)) chat.simi = false
                     if (!('clear' in chat)) chat.clear = false
                     if (!isNumber(chat.cleartime)) chat.clearTime = 0 
@@ -146,7 +146,7 @@ module.exports = {
                     antitroli: false,
                     antivirtex: false,
                     viewonce: true,
-                    nsfw: false,
+                    nsfw: true,
                     simi: false,
                     clear: false,
                     clearTime: 0
