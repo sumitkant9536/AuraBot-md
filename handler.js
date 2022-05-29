@@ -21,25 +21,13 @@ module.exports = {
 
         const _uptime = process.uptime() * 1000
         global.u = await conn.clockString(_uptime)
-        global.ucapan = ucapan()
         global.settings = global.db.data.settings
-        global.pickRandom = pickRandom
         global.doc = pickRandom(["application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/msword", "application/pdf"])
-        global.img = pickRandom(global.waifu)
-        global.fla = pickRandom(global.flaaa)
-        global.namabot = conn.user.name
-        global.packname = global.namabot
-        global.author = global.data.owner
-        global.author = '© AuraBot'
-        global.wm2 = global.data.namabot + ' ' + global.data.owner
-        global.colong1 = 'Ciss 📸'
-        global.colong2 = 'ʙy AuraBot'
         global.kontak2 = [
        ['6281393227036', 'Rifai', 'Developer Bot', 'rfiunknown62@gmail.com', true],
       ['628892964090', 'Aura', 'Lover', 'Nothing', true],
-        ]
+       ]
         global.bg = await (await fetch(img)).buffer()
-        global.time = require('moment-timezone').tz('Asia/Jakarta').format('HH:mm:ss')
 
         if (!m) return
         //console.log(JSON.stringify(m, null, 4))
