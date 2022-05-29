@@ -31,7 +31,7 @@ global.APIKeys = { // APIKey Here
   'https://api.adiofficial.xyz': 'apikey lu'
 }
 
-//Global Wait And Error
+//============= Wait and Eror ================//
 global.wait = '「 ⏱️ 」Harap tunggu...'
 global.eror = '「❗」Server ERROR!'
 
@@ -43,15 +43,22 @@ global.urlnya = "https://www.instagram.com/mas_.giyuu"
 global.dtc = 'ᴄᴀʟʟ ᴏᴡɴᴇʀ'
 global.phn = '+62 813-9322-7036'
 
+//============= Watermark Bot and Sticker =============//
+global.wm = '© AuraBot'
+global.author = '© AuraBot'
+global.packname ='RFIunknown'
+
 //============= Games ================//
 global.benar = '_*Benar✅*_'
 global.salah = '_*Salah❌*_'
 global.dikit = "dikit lagi, semangat ya :')"
-global.wm = '© AuraBot'
-global.pp = 'https://telegra.ph/file/39bbded9693c9338069fd.jpg'
-global.image = 'https://telegra.ph/file/39bbded9693c9338069fd.jpg'
 
 global.multiplier = 100 // The higher, The harder levelup
+
+//============= Thumb And Image ================//
+global.pp = 'https://telegra.ph/file/39bbded9693c9338069fd.jpg'
+global.image = 'https://telegra.ph/file/39bbded9693c9338069fd.jpg'
+global.thumb = 'http://telegra.ph/file/29f2d451412ae151a2dfb.jpg'
 
 //=========== Requirements ==========//
 
