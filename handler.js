@@ -567,35 +567,9 @@ fs.watchFile(file, () => {
     if (global.reloadHandler) console.log(global.reloadHandler())
 })
 
-function ucapan() {
-    const time = moment.tz('Asia/Jakarta').format('HH')
-    let res = "Selamat malam 🌙"
-    if (time >= 4) {
-        res = "Selamat pagi 🌄"
-    }
-    if (time > 10) {
-        res = "Selamat siang ☀️"
-    }
-    if (time >= 15) {
-        res = "Selamat sore 🌅"
-    }
-    if (time >= 18) {
-        res = "Selamat malam 🌙"
-    }
-    return res
-}
-function clockString(ms) {
-    let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-    let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-    let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-    return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
-  }
-
 function pickRandom(list) {
   return list[Math.floor(list.length * Math.random())]
 }
-
-global.thumb = 'https://telegra.ph/file/61f2d6d9694b49a2ce7aa.jpg'
 
 global.flaaa = [
  'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=water-logo&script=water-logo&fontsize=90&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextColor=%23000&shadowGlowColor=%23000&backgroundColor=%23000&text=',
