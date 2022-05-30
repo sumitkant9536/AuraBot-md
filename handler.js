@@ -21,13 +21,20 @@ module.exports = {
 
         const _uptime = process.uptime() * 1000
         global.u = await conn.clockString(_uptime)
+        global.ucapan = ucapan()
         global.settings = global.db.data.settings
+        global.pickRandom = pickRandom
         global.doc = pickRandom(["application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/msword", "application/pdf"])
-        global.kontak2 = [
+        global.img = pickRandom(global.waifu)
+        global.fla = pickRandom(global.flaaa)
+        global.namabot = conn.user.name
+        global.packname = global.namabot
+        global.author = global.data.owner
        ['6281393227036', 'Rifai', 'Developer Bot', 'rfiunknown62@gmail.com', true],
       ['628892964090', 'Aura', 'Lover', 'Nothing', true],
        ]
         global.bg = await (await fetch(img)).buffer()
+        global.time = require('moment-timezone').tz('Asia/Jakarta').format('HH:mm:ss')
 
         if (!m) return
         //console.log(JSON.stringify(m, null, 4))
@@ -42,12 +49,12 @@ module.exports = {
                 if (typeof user !== 'object') global.db.data.users[m.sender] = {}
                 if (user) {
                     if (!isNumber(user.joincount)) user.joincount = 1
-                    if (!isNumber(user.healt)) user.healt = 0
                     if (!isNumber(user.level)) user.level = 1
                     if (!isNumber(user.exp)) user.exp = 0
                     if (!isNumber(user.limit)) user.limit = 10
                     if (!isNumber(user.lastseen)) user.lastseen = 0
                     if (!isNumber(user.usebot)) user.usebot = 0
+                    if (!isNumber(user.lastclaim)) user.lastclaim = 0
                     if (!('banned' in user)) user.banned = false
                     if (!isNumber(user.warn)) user.warn = 0
                     if (!isNumber(user.warning)) user.warning = 0
@@ -57,6 +64,7 @@ module.exports = {
                     if (!isNumber(user.afk)) user.afk = -1
                     if (!('afkReason' in user)) user.afkReason = ''
                     if (!('pasangan' in user)) user.pasangan = ''
+                    // RPG
                     if (!('registered' in user)) user.registered = false
                     if (!user.registered) {
                     if (!('name' in user)) user.name = this.getName(m.sender)
@@ -69,12 +77,17 @@ module.exports = {
                     if (!isNumber(user.premiumTime)) user.premiumTime = 0
                     if (!user.role) user.role = ''
                     if (!('autolevelup' in user)) user.autolevelup = false
+                    if (!isNumber(user.pc)) user.pc = 0
+  
                 } else global.db.data.users[m.sender] = {
                     joincount: 1,
+                    healt: 100,
+                    level: 1,
                     exp: 0,
                     limit: 10,
                     lastseen: 0,
                     usebot: 0,
+                    lastclaim: 0,
                     banned: false,
                     warn: 0,
                     warning: 0,
@@ -83,6 +96,19 @@ module.exports = {
                     afk: -1,
                     afkReason: '',
                     pasangan: '',
+                    antispam: 0,
+                    antispamlastclaim: 0,
+                    registered: false,
+                    name: this.getName(m.sender),
+                    email: '',
+                    label: '',
+                    age: -1,
+                    regTime: -1,
+                    premium: false,
+                    premiumTime: 0,
+                    role: '',
+                    autolevelup: false,
+
                 }
                 let chat = global.db.data.chats[m.chat]
                 if (typeof chat !== 'object') global.db.data.chats[m.chat] = {}
@@ -108,7 +134,7 @@ module.exports = {
                     if (!('antitroli' in chat)) chat.antitroli = false
                     if (!('antivirtex' in chat)) chat.antivirtex = false
                     if (!('viewonce' in chat)) chat.viewonce = true
-                    if (!('nsfw' in chat)) chat.nsfw = true
+                    if (!('nsfw' in chat)) chat.nsfw = false
                     if (!('simi' in chat)) chat.simi = false
                     if (!('clear' in chat)) chat.clear = false
                     if (!isNumber(chat.cleartime)) chat.clearTime = 0 
@@ -134,7 +160,7 @@ module.exports = {
                     antitroli: false,
                     antivirtex: false,
                     viewonce: true,
-                    nsfw: true,
+                    nsfw: false,
                     simi: false,
                     clear: false,
                     clearTime: 0
@@ -158,7 +184,7 @@ module.exports = {
                     self: false,
                     anon: true,
                     anticall: true,
-                    backup: false,
+                    backup: true,
                     backupDB: 0,
                     groupOnly: false,
                     jadibot: false,
@@ -529,16 +555,17 @@ Untuk mematikan fitur ini, ketik
 
 global.dfail = async (type, m, conn) => {
     let msg = {
-        rowner: 'Perintah ini hanya dapat digunakan oleh _*OWWNER!1!1!*_',
-        owner: 'Perintah ini hanya dapat digunakan oleh _*Owner Bot*_!',
-        mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
+        rowner: `Perintah ini hanya dapat digunakan oleh _*Team Bot Discussion!1!1!*_`,
+        owner: `Perintah ini hanya dapat digunakan oleh _*Team Bot Discussion!1!1!*_`,
+        mods: `Perintah ini hanya dapat digunakan oleh *Moderator*`,
         premium: 'Perintah ini hanya untuk member _*Premium*_ !',
         group: `Perintah ini hanya dapat digunakan di grup!`,
         private: 'Perintah ini hanya dapat digunakan di Chat Pribadi!',
         admin: 'Perintah ini hanya untuk *Admin* grup!',
         botAdmin: 'Jadikan bot sebagai *Admin* untuk menggunakan perintah ini!',
         unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Manusia.16*',
-        nsfw: `NSFW tidak aktif, Silahkan hubungi owner untuk mengaktifkan fitur ini!`,
+        nsfw: `NSFW tidak aktif, Silahkan hubungi Team Bot Discussion untuk mengaktifkan fitur ini!`,
+        rpg: `RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan fitur ini!`,
         restrict: 'Fitur ini di *disable*!'
     }[type]
     if (msg) return conn.reply(m.chat, msg, m, { mentions: conn.parseMention(msg) })
