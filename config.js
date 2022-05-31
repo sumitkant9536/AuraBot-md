@@ -47,6 +47,7 @@ global.phn = '+62 813-9322-7036'
 global.wm = '© AuraBot'
 global.author = '© AuraBot'
 global.packname ='RFIunknown'
+global.namabot = 'AuraBot'
 
 //============= Games ================//
 global.benar = '_*Benar✅*_'
