@@ -21,18 +21,12 @@ module.exports = {
 
         const _uptime = process.uptime() * 1000
         global.u = await conn.clockString(_uptime)
-        global.ucapan = ucapan()
         global.settings = global.db.data.settings
         global.pickRandom = pickRandom
         global.doc = pickRandom(["application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/msword", "application/pdf"])
         global.img = pickRandom(global.waifu)
         global.fla = pickRandom(global.flaaa)
-        global.namabot = conn.user.name
-        global.packname = global.namabot
-        global.author = global.data.owner
-       ['6281393227036', 'Rifai', 'Developer Bot', 'rfiunknown62@gmail.com', true],
-      ['628892964090', 'Aura', 'Lover', 'Nothing', true],
-       ]
+
         global.bg = await (await fetch(img)).buffer()
         global.time = require('moment-timezone').tz('Asia/Jakarta').format('HH:mm:ss')
 
@@ -78,26 +72,16 @@ module.exports = {
                     if (!user.role) user.role = ''
                     if (!('autolevelup' in user)) user.autolevelup = false
                     if (!isNumber(user.pc)) user.pc = 0
-  
                 } else global.db.data.users[m.sender] = {
                     joincount: 1,
-                    healt: 100,
                     level: 1,
                     exp: 0,
                     limit: 10,
                     lastseen: 0,
                     usebot: 0,
                     lastclaim: 0,
-                    banned: false,
-                    warn: 0,
-                    warning: 0,
-                    lastIstigfar: 0,
-                    call: 0,
-                    afk: -1,
-                    afkReason: '',
-                    pasangan: '',
-                    antispam: 0,
-                    antispamlastclaim: 0,
+                    lastweekly: 0,
+                    lastmonthly: 0,
                     registered: false,
                     name: this.getName(m.sender),
                     email: '',
@@ -108,7 +92,7 @@ module.exports = {
                     premiumTime: 0,
                     role: '',
                     autolevelup: false,
-
+                    pc: 0,
                 }
                 let chat = global.db.data.chats[m.chat]
                 if (typeof chat !== 'object') global.db.data.chats[m.chat] = {}
@@ -172,7 +156,7 @@ module.exports = {
                     if (!'self' in settings) settings.self = false
                     if (!'anon' in settings) settings.anon = true
                     if (!'anticall' in settings) settings.anticall = true
-                    if (!'backup' in settings) settings.backup = true
+                    if (!'backup' in settings) settings.backup = false
                     if (!isNumber(settings.backupDB)) settings.backupDB = 0
                     if (!'groupOnly' in settings) settings.groupOnly = false
                     if (!'jadibot' in settings) settings.jadibot = false
@@ -184,7 +168,7 @@ module.exports = {
                     self: false,
                     anon: true,
                     anticall: true,
-                    backup: true,
+                    backup: false,
                     backupDB: 0,
                     groupOnly: false,
                     jadibot: false,
@@ -582,35 +566,9 @@ fs.watchFile(file, () => {
     if (global.reloadHandler) console.log(global.reloadHandler())
 })
 
-function ucapan() {
-    const time = moment.tz('Asia/Jakarta').format('HH')
-    let res = "Selamat malam 🌙"
-    if (time >= 4) {
-        res = "Selamat pagi 🌄"
-    }
-    if (time > 10) {
-        res = "Selamat siang ☀️"
-    }
-    if (time >= 15) {
-        res = "Selamat sore 🌅"
-    }
-    if (time >= 18) {
-        res = "Selamat malam 🌙"
-    }
-    return res
-}
-function clockString(ms) {
-    let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-    let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-    let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-    return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
-  }
-
 function pickRandom(list) {
   return list[Math.floor(list.length * Math.random())]
 }
-
-global.thumb = 'https://telegra.ph/file/61f2d6d9694b49a2ce7aa.jpg'
 
 global.flaaa = [
  'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=water-logo&script=water-logo&fontsize=90&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextColor=%23000&shadowGlowColor=%23000&backgroundColor=%23000&text=',
