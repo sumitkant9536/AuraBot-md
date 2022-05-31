@@ -1,6 +1,6 @@
 let fetch = require('node-fetch')
 let handler = async(m, { conn }) => {
-    let teks = 
+    let teks = `
 ❖ *Kebijakan Privasi, Syarat Ketentuan dan Peraturan AuraBot* ❖
 
 ◉ [ *Kebijakan Privasi* ]
@@ -29,7 +29,6 @@ let handler = async(m, { conn }) => {
 -AuraBot
 -Muhammad Rifai
 Peraturan: 10 Januari 2022
-
 `.trim()
     conn.reply(m.chat, teks, m, { contextInfo: {
         externalAdReply: {
