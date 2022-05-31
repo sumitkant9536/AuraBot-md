@@ -1,7 +1,7 @@
 let fetch = require('node-fetch')
 
 const artinama_api = [
-  ['xteam', '/primbon/artinama', 'q', 'APIKEY', json => {
+  ['https://rest-beni.herokuapp.com/api', '/artinama', 'nama', null, json => {
     if (!json.status) throw json
     return `
 *Nama:* ${json.result.nama}
@@ -41,7 +41,7 @@ let handler = async (m, { text, usedPrefix, command }) => {
   m.reply(result)
 }
 handler.help = ['artinama'].map(v => v + ' [nama]')
-handler.tags = ['kerang']
+handler.tags = ['fun']
 handler.command = ['artinama']
 
 module.exports = handler
