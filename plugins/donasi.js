@@ -1,15 +1,24 @@
-let handler = async (m, { conn, usedPrefix }) => conn.sendButton(m.chat, `
-╭─「 Donasi • Dana 」
-│ • Telkomsel [081393227036]
-│ • Dana  [081393227036]
-│ • Qris  [Chat owner]
-╰────
-╭─「 *OWNER* 」
-│ > Ingin donasi? Wa.me/6281393227036
-╰────
-`.trim(), wm, 'Menu', usedPrefix + 'menu', m) // Tambah sendiri kalo mau
+let fetch = require('node-fetch')
+let handler = async (m, { conn }) => {
+let pp = await(await fetch(thumb)).buffer()
+await conn.reply(m.chat, `
+┌〔 Donasi • Emoney 〕
+├ GoPay: 6281393227036
+├ OVO: -
+├ Dana: 6281393227036
+├ Pulsa (Telkom): 6281393227036
+└────
+`.trim(), m, { contextInfo: {
+    externalAdReply: {
+      sourceUrl: ' https://wa.me/6281393227036',
+      title: 'Donasi',
+      body: 'AuraBot',
+      thumbnail: pp
+    }
+}})
+}
 handler.help = ['donasi']
-handler.tags = ['about']
+handler.tags = ['main']
 handler.command = /^dona(te|si)$/i
 
 module.exports = handler
