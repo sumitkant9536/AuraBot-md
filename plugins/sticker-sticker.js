@@ -1,5 +1,5 @@
-const { MessageType } = require('@adiwajshing/baileys')
 const { sticker } = require('../lib/sticker')
+const WSF = require('wa-sticker-formatter')
 let handler = async (m, { conn, args, usedPrefix, command }) => {
   let stiker = false
   try {
