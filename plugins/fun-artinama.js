@@ -1,47 +1,29 @@
-let fetch = require('node-fetch')
+let axios = require("axios");
+let handler = async(m, { conn, text }) => {
 
-const artinama_api = [
-  ['https://rest-beni.herokuapp.com/api', '/artinama', 'nama', null, json => {
-    if (!json.status) throw json
-    return `
-*Nama:* ${json.result.nama}
-*Arti:* ${json.result.arti}
+    if (!text) return conn.reply(m.chat, 'Silahkan masukan nama yang akan diartikan', m)
 
-*Makna:* ${json.result.maksud}
-`.trim()
-  }],
-  ['http://nzcha-apii.herokuapp.com', '/artinama', 'nama', null, json => {
-    if (!json.status) throw json
-    return `
-*Arti:* ${json.result}
-`.trim()
-  }],
-  ['https://scrap.terhambar.com', '/nama', 'n', null, json => {
-    if (!json.status) throw json
-    return `
-*Arti:* ${json.result.arti}
-`.trim()
-  }]
-]
+  await m.reply('Searching...')
+	axios.get(`https://rest-beni.herokuapp.com/api/artinama?nama=${text}`).then ((res) => {
+	 	let hasil = `Arti Namamu Adalah\n\n${res.data.result}`
 
-let handler = async (m, { text, usedPrefix, command }) => {
-  if (!text) throw `Contoh:\n${usedPrefix + command} agus`
-  let result = ''
-  for (let [origin, pathname, query, apikey, fn] of artinama_api) {
-    try {
-      let res = await fetch(global.API(origin, pathname, { [query]: text }, apikey))
-      if (!res.ok) throw res.text()
-      let json = await res.json()
-      result = await fn(json)
-      break
-    } catch (e) {
-      lastErr = e
-    }
-  }
-  m.reply(result)
+    conn.reply(m.chat, hasil, m)
+	})
 }
-handler.help = ['artinama'].map(v => v + ' [nama]')
-handler.tags = ['fun']
-handler.command = ['artinama']
+handler.help = ['artinama'].map(v => v + ' <nama>')
+handler.tags = ['primbon']
+handler.command = /^(artinama)$/i
+handler.owner = false
+handler.mods = false
+handler.premium = false
+handler.group = false
+handler.private = false
+
+handler.admin = false
+handler.botAdmin = false
+
+handler.fail = null
+handler.exp = 0
+handler.limit = true
 
 module.exports = handler
