@@ -13,7 +13,7 @@ handler.before = function (m, { isOwner, isBotAdmin }) {
         user.warning += 1
         this.send2Button(m.chat, `*Badword terdeteksi!*
 Warning: ${user.warning} / 10
-Jika warning mencapai 5 kamu akan dibanned
+Jika warning mencapai 10 kamu akan dibanned
 
 ketik *#on antibadword* untuk menyalakan antibadword
 ketik *#astagfirullah* atau *#maaf* untuk mengurangi warning
