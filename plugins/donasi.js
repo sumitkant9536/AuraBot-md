@@ -1,6 +1,6 @@
 let fetch = require('node-fetch')
 let handler = async (m, { conn }) => {
-let pp = await(await fetch(thumb)).buffer()
+let pp = await(await fetch(image)).buffer()
 await conn.reply(m.chat, `
 ┌〔 Donasi • Emoney 〕
 ├ GoPay: 6281393227036
