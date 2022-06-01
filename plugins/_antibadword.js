@@ -12,7 +12,7 @@ handler.before = function (m, { isOwner, isBotAdmin }) {
     if (!chat.badword && !chat.isBanned && isBadword) {
         user.warning += 1
         this.send2Button(m.chat, `*Badword terdeteksi!*
-Warning: ${user.warning} / 5
+Warning: ${user.warning} / 10
 Jika warning mencapai 5 kamu akan dibanned
 
 ketik *#on antibadword* untuk menyalakan antibadword
