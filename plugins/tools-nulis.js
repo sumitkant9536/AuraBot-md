@@ -68,7 +68,7 @@ let handler  = async (m, { conn, args }) => {
 }
 handler.help = ['n'].map(v => v + 'ulis <teks>')
 handler.tags = ['nulis']
-handler.command = /^nulis2$/i
+handler.command = /^nulis$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
