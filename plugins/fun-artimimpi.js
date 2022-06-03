@@ -12,7 +12,7 @@ let handler = async(m, { conn, text }) => {
 }
 handler.help = ['artimimpi'].map(v => v + ' <mimpi>')
 handler.tags = ['fun']
-handler.command = /^(artinama)$/i
+handler.command = /^(artimimpi)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
