@@ -18,7 +18,7 @@ Timeout *${(timeout / 1000).toFixed(2)} detik*
 Ketik ${usedPrefix}teka untuk bantuan
 Bonus: ${poin} XP
 `.trim()
-    conn.tebakkata[id] = [
+    conn.tebakkata = [
         await conn.sendButton(m.chat, caption, wm, 'Bantuan', '.teka', m),
         json, poin,
         setTimeout(async () => {
