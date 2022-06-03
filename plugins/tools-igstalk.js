@@ -19,7 +19,7 @@ Bio: ${json.bio}
   conn.sendFile(m.chat, json.profilePicHD, 'ig.jpg', iggs, m)
 }
 handler.help = ['igstalk <username>']
-handler.tags = ['tools']
+handler.tags = ['internet']
 handler.command = /^(igstalk)$/i
 handler.limit = true
 
