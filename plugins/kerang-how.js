@@ -11,7 +11,7 @@ let handler = async (m, { conn, command, text }) => {
 }
 handler.help = ['how <teks>?']
 handler.tags = ['kerang']
-handler.command = /^apakah$/i
+handler.command = /^how$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
