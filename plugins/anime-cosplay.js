@@ -1,8 +1,10 @@
+let fetch = require('node-fetch')
 let handler = async (m, { conn }) => {
-    conn.sendButtonImg(m.chat, global.API('https://rest-beni.herokuapp.com/api/randomimage/cosplay'), 'Nih', wm, 'NEXT', '.neko', m)
+  conn.sendFile(m.chat, global.API('https://rest-beni.herokuapp.com/api/randomimage/cosplay'), 'cosplay.jpg', '_*Nih Wibu*_', m)
 }
-handler.help = ['neko']
+handler.help = ['cosplay']
 handler.tags = ['anime']
-handler.command = /^(neko)$/i
+
+handler.command = /^(cosplay)$/i
 
 module.exports = handler
