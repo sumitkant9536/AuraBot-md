@@ -1,8 +1,8 @@
 # AuraBot-md
 
-<a href = "https://github.com/FadliDarmawan/haruno-md"><img src = "https://cardivo.vercel.app/api?name=AuraBot-md&description=AuraBot,%20Bot%20WhatsApp%20multi%20device.%20Created%20by%20Nurutomo,%20BochilGaming,%20and%20RFIunknown.&image=http://telegra.ph/file/29f2d451412ae151a2dfb.jpg?cb=20200606024545&usqp=CAU&usqp=CAU&backgroundColor=%23ecf0f1&github=RFIunknown&pattern=topography&colorPattern=%23eaeaea"/><a>
+<a href = "https://github.com/RFIunknown/AuraBot-md"><img src = "https://cardivo.vercel.app/api?name=AuraBot-md&description=AuraBot,%20Bot%20WhatsApp%20multi%20device.%20Created%20by%20Nurutomo,%20BochilGaming,%20and%20RFIunknown.&image=http://telegra.ph/file/29f2d451412ae151a2dfb.jpg?cb=20200606024545&usqp=CAU&usqp=CAU&backgroundColor=%23ecf0f1&github=RFIunknown&pattern=topography&colorPattern=%23eaeaea"/><a>
 
-<a href="https://visitor-badge.glitch.me/badge?page_id=RFIunknown/AuraBot-md"><img title="Visitor" src="https://visitor-badge.glitch.me/badge?page_id=Fokusdotid/Family-MD"></a>
+<a href="https://visitor-badge.glitch.me/badge?page_id=RFIunknown/AuraBot-md"><img title="Visitor" src="https://visitor-badge.glitch.me/badge?page_id=RFIunknown/AuraBot-md"></a>
 <a href="https://github.com/RFIunknown/AuraBot-md/network/members"><img title="Forks" src="https://img.shields.io/github/forks/RFIunknown/AuraBot-md?label=Forks&color=blue&style=flat-square"></a>
 <a href="https://github.com/RFIunknown/AuraBot-md/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/RFIunknown/AuraBot-md?label=Watchers&color=green&style=flat-square"></a>
 <a href="https://github.com/RFIunknown/AuraBot-md/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/RFIunknown/AuraBot-md?label=Stars&color=yellow&style=flat-square"></a>
