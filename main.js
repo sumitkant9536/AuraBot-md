@@ -23,7 +23,10 @@ try {
   low = require('./lib/lowdb')
 }
 const { Low, JSONFile } = low
-const mongoDB = require('./lib/mongoDB')
+const {
+	mongoDB,
+	MongoDBV2
+} = require('./lib/mongoDB')
 
 simple.protoType()
 
@@ -77,7 +80,7 @@ const connectionOptions = {
   auth: state,
   logger: P({ level: 'silent'}),
   version: [2, 2204, 13],
-  browser: ['AuraBot', 'IOS', '4.1.0']
+  browser: ['AuraBot-MD', 'IOS', '4.1.0']
 }
 
 global.conn = simple.makeWASocket(connectionOptions)
@@ -96,6 +99,7 @@ async function connectionUpdate(update) {
   if (connection == 'connecting') console.log(chalk.redBright('🕛 Mengaktifkan Bot, Harap tunggu sebentar...'))
   if (connection == 'open') {
       console.log(chalk.green('Connected✅'))
+      await conn.AuraBot("6281393227036@s.whatsapp.net", global.ftoli)
   }
   if (connection == 'close') console.log(chalk.red('⏹️Koneksi berhenti dan mencoba menghubungkan kembali...'))
   global.timestamp.connect = new Date

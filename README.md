@@ -1,154 +1,166 @@
-# AuraBot
+# AuraBot-md
 
-### Group Official AuraBot
-[![Grup WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/BKUUviabCwFIr9pIRe9iuE)
+<a href = "https://github.com/FadliDarmawan/haruno-md"><img src = "https://cardivo.vercel.app/api?name=AuraBot-md&description=AuraBot,%20Bot%20WhatsApp%20multi%20device.%20Created%20by%20Nurutomo,%20BochilGaming,%20and%20RFIunknown.&image=http://telegra.ph/file/29f2d451412ae151a2dfb.jpg?cb=20200606024545&usqp=CAU&usqp=CAU&backgroundColor=%23ecf0f1&github=RFIunknown&pattern=topography&colorPattern=%23eaeaea"/><a>
 
-### Deploy to Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/RFIunknown/AuraBot-md)
+<a href="https://visitor-badge.glitch.me/badge?page_id=Fokusdotid/Family-MD"><img title="Visitor" src="https://visitor-badge.glitch.me/badge?page_id=Fokusdotid/Family-MD"></a>
+<a href="https://github.com/Fokusdotid/Family-MD/network/members"><img title="Forks" src="https://img.shields.io/github/forks/Fokusdotid/Family-MD?label=Forks&color=blue&style=flat-square"></a>
+<a href="https://github.com/Fokusdotid/Family-MD/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/Fokusdotid/Family-MD?label=Watchers&color=green&style=flat-square"></a>
+<a href="https://github.com/Fokusdotid/Family-MD/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/Fokusdotid/Family-MD?label=Stars&color=yellow&style=flat-square"></a>
+<a href="https://github.com/Fokusdotid/Family-MD/graphs/contributors"><img title="Contributors" src="https://img.shields.io/github/contributors/Fokusdotid/Family-MD?label=Contributors&color=blue&style=flat-square"></a>
+<a href="https://github.com/Fokusdotid/Family-MD/issues"><img title="Issues" src="https://img.shields.io/github/issues/Fokusdotid/Family-MD?label=Issues&color=success&style=flat-square"></a>
+<a href="https://github.com/Fokusdotid/Family-MD/issues?q=is%3Aissue+is%3Aclosed"><img title="Issues" src="https://img.shields.io/github/issues-closed/Fokusdotid/Family-MD?label=Issues&color=red&style=flat-square"></a>
+<a href="https://github.com/Fokusdotid/Family-MD/pulls"><img title="Pull Request" src="https://img.shields.io/github/issues-pr/Fokusdotid/Family-MD?label=PullRequest&color=success&style=flat-square"></a>
+<a href="https://github.com/Fokusdotid/Family-MD/pulls?q=is%3Apr+is%3Aclosed"><img title="Pull Request" src="https://img.shields.io/github/issues-pr-closed/Fokusdotid/Family-MD?label=PullRequest&color=red&style=flat-square"></a>
 
-<p align = "left">
-      <img src = "https://telegra.ph/file/196b5f6f24ccdc6805021.jpg" width="35%" style="margin-left: auto;margin-right: auto;display: block;">
-</p>
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Fokusdotid/Family-MD)
+## Join Group Diskusi
+[![BOT DISCUSSION GROUP](https://img.shields.io/badge/WhatsApp%20Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/Fm6gRtvuCDN9abXVlfekAK) 
+**NO BOT**
 
-## FOR TERMUX USER
+## Grup Botnya
+[![BOT DISCUSSION GROUP](https://img.shields.io/badge/WhatsApp%20Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/BC3ZpPCD3khLhuEBNn47Ko)
+
+## UNTUK PENGGUNA WINDOWS/VPS/RDP
+
+* Unduh & Instal Git [`Klik Disini`](https://git-scm.com/downloads)
+* Unduh & Instal NodeJS [`Klik Disini`](https://nodejs.org/en/download)
+* Unduh & Instal FFmpeg [`Klik Disini`](https://ffmpeg.org/download.html) (**Jangan Lupa Tambahkan FFmpeg ke variabel lingkungan PATH**)
+* Unduh & Instal ImageMagick [`Klik Disini`](https://imagemagick.org/script/download.php)
+
 ```bash
-pkg update && pkg upgrade
-pkg install git
-pkg install nodejs
-pkg install ffmpeg
-pkg install imagemagick
-pkg install yarn
-git clone https://github.com/FadliDarmawan/haruno-md
-cd haruno-md
-yarn
-npm i -g typescript
-tsc -p ./node_modules/@adiwajshing/baileys
+git clone https://github.com/Fokusdotid/Family-MD.git
+cd Family-MD
+npm i
 node .
 ```
 
 ---------
 
-## FOR WINDOWS/VPS/RDP USER
+## UNTUK PENGGUNA TERMUX
 
-* Download And Install Git [`Click Here`](https://git-scm.com/downloads)
-* Download And Install NodeJS [`Click Here`](https://nodejs.org/en/download)
-* Download And Install FFmpeg [`Click Here`](https://ffmpeg.org/download.html) (**Don't Forget Add FFmpeg to PATH enviroment variables**)
-* Download And Install ImageMagick [`Click Here`](https://imagemagick.org/script/download.php)
+* Download Termux [`Klik Disini`](https://github.com/termux/termux-app/releases/download/v0.118.0/termux-app_v0.118.0+github-debug_universal.apk)
 
-```bash
-git clone https://github.com/FadliDarmawan/haruno-md
-cd haruno-md
-npm install
-npm update
-npm index
 ```
-
+$ pkg update && upgrade -y
+$ apt update && upgrade -y
+$ pkg install ffmpeg
+$ pkg install nodejs-lts
+$ pkg install git
+$ git clone https://github.com/Fokusdotid/Family-MD.git
+$ cd Family-MD
+$ npm i
+$ node .
+```
 ---------
+## UNTUK PENGGUNA HEROKU
 
-## FOR HEROKU USER
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FadliDarmawan/haruno-md)
-
-### Installing buildpack
+### Instal Buildpack
 * heroku/nodejs
 * https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
-https://github.com/DuckyTeam/heroku-buildpack-imagemagick.git
-
-
-### Connecting the Heroku Into Mogodb
-
-Note: You dont have to connect your Haruno at Heroku into mongoDB, but Heroku doesn save your ```database.json``` and you will lose your bot data every time you restart or re-run the bot.
-
-* Create account and database in mongodb atlas [`watch here`](https://youtu.be/rPqRyYJmx2g)
-* when you already have a database, you just need to take mongourl
-* Put mongourl in Procfile `web: node . --db 'mongourl'`
-* Example `web: node . -- db 'mongodb+srv://ilman:<password>@cluster0.iiede.mongodb.net/ShiraoriBOT?retryWrites=true&w=majority'`
+* https://github.com/mcollina/heroku-buildpack-imagemagick.git
 
 ---------
+## CARA SETTINGS
 
-## Run
-
-```bash
-node .
-```
+Untuk menambahkan atau mengedit owner ada di `settings/owner.json`
+Cantumkan sumber sc wajib!!
 
 ---------
+## Arguments `node . [--options] [<session name>]` 
 
-## Arguments `node . [--options] [<session name>]`
+### `--session <nama file>`
 
-### `--self`
+menggunakan session dari nama file yang berbeda, default `session.data.json`
 
-Activate self mode (Ignores other)
+contoh nama file `family.json` maka penggunaannya `node . --session 'family'`
 
-### `--pconly`
+### `--prefix <prefix>`
 
-If that chat not from private bot, bot will ignore
-
-### `--gconly`
-
-If that chat not from group, bot will ignore
-
-### `--swonly`
-
-If that chat not from status, bot will ignore
-
-### `--prefix <prefixes>`
-
-* `prefixes` are seperated by each character
-Set prefix
+* `prefixes` dipisahkan oleh masing-masing karakter
+Setel awalan
 
 ### `--server`
 
-Used for [heroku](https://heroku.com/) or scan through website
+Digunakan untuk [heroku](https://heroku.com/) atau pindai melalui situs web
 
-### `--restrict`
+### `--db <url mongodb kamu>`
 
-Enables restricted plugins (which can lead your number to be **banned** if used too often)
+Buka file package.json dan isikan url mongodb kamu di bagian `mongo: --db url mongodb`!
 
-* Group Administration `add, kick`
+### `--db <json-server-url>`
+
+menggunakan db eksternal alih-alih db lokal, **disarankan** menggunakan mongodb
+
+contoh server dengan mongodb `mongodb+srv://<username>:<password>@name-of-your-db.thhce.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+
+contoh server dengan repl `https://json-server.nurutomo.repl.co/`
+
+kode: `https://repl.it/@Nurutomo/json-server`
+
+`node . --db 'https://json-server.nurutomo.repl.co/'`
+
+server harus memiliki spesifikasi seperti ini
+
+#### GET
+
+```http
+GET /
+Accept: application/json
+```
+
+#### POST
+
+```http
+POST /
+Content-Type: application/json
+{
+ data: {}
+}
+```
+
+### `--big-qr`
+
+Jika qr unicode kecil tidak mendukung
 
 ### `--img`
 
-Enable image inspector through terminal
-
-### `--autoread`
-
-If enabled, all incoming messages will be marked as read
-
-### `--autocleartmp`
-
-If enabled, **tmp* folder contain files will be auto delete
-
-### `--nyimak`
-
-No bot, just print received messages and add users to database
+Aktifkan pemeriksa gambar melalui terminal
 
 ### `--test`
 
 **Development** Testing Mode
 
----------
+### `--trace`
 
-## How To Customise Message Display
 ```js
-// Syntax
-conn.sendButton(
-      jid, // jid of the user to send the message to
-      text, // text to send
-      foooter, // footer to send
-      buffer, // buffer to send (optional), if you want to send button image, location, etc
-      buttons, // buttons to send, example [['text1', 'id1'], ['text2', 'id2']]
-      quoted, // quoted message to send (optional)
-      options // options to send, example { asLocation: true }
-)
-
-// example 
-conn.sendButton(m.chat, 'Hello world!', '@BochilGaming', null, [
-      ['Hello', 'hello'], ['Bye', 'bye']
-])
-// example button location
-conn.sendButton(m.chat, 'Hello world!', '@BochilGaming', 'https://github.com/BochilGaming', 
-      [['Hello', 'hello'], ['Bye', 'bye']], 
-      null, { asLocation: true }
-)
+conn.logger.level = 'trace'
 ```
+
+### `--debug`
+
+```js
+conn.logger.level = 'debug'
+```
+#### Thanks To 
+**Allah SWT**,
+
+**Orang Tua**,
+
+**All Team Bot Discussion**,
+
+**Semua yang selalu mendukung**
+
+
+##### Special Thanks to
+[![Nurutomo](https://github.com/Nurutomo.png?size=100)](https://github.com/Nurutomo)
+[![BochilGaming](https://github.com/BochilGaming.png?size=100)](https://github.com/BochilGaming)
+
+##### Penulis Ulang
+[![Fokus ID](https://github.com/fokusdotid.png?size=100)](https://github.com/fokusdotid)
+
+###### Collaborator
+
+[![RHns](https://github.com/imrhns.png?size=100)](https://github.com/imrhns)
+[![M imam Adi](https://github.com/adi-officiall.png?size=100)](https://github.com/adi-officiall)
+[![Aniq](https://github.com/aniq12.png?size=100)](https://github.com/aniq12)

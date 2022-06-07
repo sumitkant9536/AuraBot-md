@@ -2,7 +2,6 @@ let { Presence } = require('@adiwajshing/baileys')
 let { performance } = require('perf_hooks')
 const simple = require('./lib/simple')
 const util = require('util')
-const moment = require('moment-timezone')
 
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(resolve, ms))
@@ -28,7 +27,6 @@ module.exports = {
         global.fla = pickRandom(global.flaaa)
 
         global.bg = await (await fetch(img)).buffer()
-        global.time = require('moment-timezone').tz('Asia/Jakarta').format('HH:mm:ss')
 
         if (!m) return
         //console.log(JSON.stringify(m, null, 4))
@@ -42,50 +40,45 @@ module.exports = {
                 let user = global.db.data.users[m.sender]
                 if (typeof user !== 'object') global.db.data.users[m.sender] = {}
                 if (user) {
+                    if (!isNumber(user.exp)) user.exp = 0
+                    if (!user.role) user.role = ''
+                    if (!isNumber(user.limit)) user.limit = 15
+                    if (!('premium' in user)) user.premium = false
+                    if (!isNumber(user.premiumTime)) user.premiumTime = 0
+                    if (!('autolevelup' in user)) user.autolevelup = false
+                    if (!('registered' in user)) user.registered = false
                     if (!isNumber(user.joincount)) user.joincount = 1
                     if (!isNumber(user.level)) user.level = 1
-                    if (!isNumber(user.exp)) user.exp = 0
-                    if (!isNumber(user.limit)) user.limit = 10
                     if (!isNumber(user.lastseen)) user.lastseen = 0
                     if (!isNumber(user.usebot)) user.usebot = 0
                     if (!isNumber(user.lastclaim)) user.lastclaim = 0
-                    if (!('banned' in user)) user.banned = false
                     if (!isNumber(user.warn)) user.warn = 0
                     if (!isNumber(user.warning)) user.warning = 0
                     if (!isNumber(user.lastIstigfar)) user.lastIstigfar = 0
                     if (!isNumber(user.call)) user.call = 0  
+                    if (!isNumber(user.pc)) user.pc = 0
 
                     if (!isNumber(user.afk)) user.afk = -1
+                    if (!('banned' in user)) user.banned = false
                     if (!('afkReason' in user)) user.afkReason = ''
                     if (!('pasangan' in user)) user.pasangan = ''
-                    // RPG
-                    if (!('registered' in user)) user.registered = false
                     if (!user.registered) {
                     if (!('name' in user)) user.name = this.getName(m.sender)
-                    if (!('email' in user)) user.email = ''
-                    if (!('label' in user)) user.label = ''
                     if (!isNumber(user.age)) user.age = -1
                     if (!isNumber(user.regTime)) user.regTime = -1
                     }
-                    if (!('premium' in user)) user.premium = false
-                    if (!isNumber(user.premiumTime)) user.premiumTime = 0
-                    if (!user.role) user.role = ''
-                    if (!('autolevelup' in user)) user.autolevelup = false
+
                     if (!isNumber(user.pc)) user.pc = 0
                 } else global.db.data.users[m.sender] = {
-                    joincount: 1,
-                    level: 1,
                     exp: 0,
                     limit: 10,
+                    joincount: 1,
+                    level: 1,
                     lastseen: 0,
                     usebot: 0,
                     lastclaim: 0,
-                    lastweekly: 0,
-                    lastmonthly: 0,
                     registered: false,
                     name: this.getName(m.sender),
-                    email: '',
-                    label: '',
                     age: -1,
                     regTime: -1,
                     premium: false,
@@ -119,7 +112,6 @@ module.exports = {
                     if (!('antivirtex' in chat)) chat.antivirtex = false
                     if (!('viewonce' in chat)) chat.viewonce = true
                     if (!('nsfw' in chat)) chat.nsfw = false
-                    if (!('simi' in chat)) chat.simi = false
                     if (!('clear' in chat)) chat.clear = false
                     if (!isNumber(chat.cleartime)) chat.clearTime = 0 
                 } else global.db.data.chats[m.chat] = {
@@ -145,7 +137,6 @@ module.exports = {
                     antivirtex: false,
                     viewonce: true,
                     nsfw: false,
-                    simi: false,
                     clear: false,
                     clearTime: 0
                 }
@@ -156,7 +147,8 @@ module.exports = {
                     if (!'self' in settings) settings.self = false
                     if (!'anon' in settings) settings.anon = true
                     if (!'anticall' in settings) settings.anticall = true
-                    if (!'backup' in settings) settings.backup = false
+                    if (!'backup' in settings) settings.backup = true
+                if (!'restrict' in settings) settings.restrict = false
                     if (!isNumber(settings.backupDB)) settings.backupDB = 0
                     if (!'groupOnly' in settings) settings.groupOnly = false
                     if (!'jadibot' in settings) settings.jadibot = false
@@ -168,8 +160,9 @@ module.exports = {
                     self: false,
                     anon: true,
                     anticall: true,
-                    backup: false,
+                    backup: true,
                     backupDB: 0,
+                   restrict: false,
                     groupOnly: false,
                     jadibot: false,
                     status: 0,
@@ -450,35 +443,20 @@ module.exports = {
         switch (action) {
             case 'add':
             case 'remove':
-                if (chat.welcome) {
-                    let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
-                    for (let user of participants) {
-                        let pp = 'https://telegra.ph/file/2d06f0936842064f6b3bb.png'
-                        try {
-                            pp = await this.profilePictureUrl(user, 'image')
-                        } catch (e) {
-
-                        } finally {
-                            text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc ? String.fromCharCode(8206).repeat(4001) + groupMetadata.desc : '') :
-                                (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', await this.getName(user))
-                            let wel = API('hardianto', '/api/welcome3', {
-                                profile: pp,
-                                name: await this.getName(user),
-                                bg: 'https://telegra.ph/file/c538a6f5b0649a7861174.png',
-                                namegb: await this.getName(id),
-                                member: groupMetadata.participants.length
-                            })
-                            let lea = API('hardianto', '/api/goodbye3', {
-                                profile: pp,
-                                name: await this.getName(user),
-                                bg: 'https://telegra.ph/file/c538a6f5b0649a7861174.png',
-                                namegb: await this.getName(id),
-                                member: groupMetadata.participants.length
-                            })
-                            await this.send3TemplateButtonImg(id, action === 'add' ? wel : lea, text, wm, action === 'add' ? 'selamat datang' : 'sampai jumpa', action === 'add' ? '.intro' : 'FokusID')
-                        }
+            if (chat.welcome) {
+                let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
+                for (let user of participants) {
+                    let pp = './src/avatar_contact.png'
+                    try {
+                        pp = await this.profilePictureUrl(user, 'image')
+                    } catch (e) {
+                    } finally {
+                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || 'unknow') :
+                            (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
+                        this.sendFile(id, pp, 'pp.jpg', text, null, false, { mentions: [user] })
                     }
                 }
+            }
                 break
 
             case 'promote':
@@ -539,17 +517,15 @@ Untuk mematikan fitur ini, ketik
 
 global.dfail = async (type, m, conn) => {
     let msg = {
-        rowner: `Perintah ini hanya dapat digunakan oleh _*Team Bot Discussion!1!1!*_`,
-        owner: `Perintah ini hanya dapat digunakan oleh _*Team Bot Discussion!1!1!*_`,
-        mods: `Perintah ini hanya dapat digunakan oleh *Moderator*`,
+        rowner: 'Perintah ini hanya dapat digunakan oleh _*OWWNER!1!1!*_',
+        owner: 'Perintah ini hanya dapat digunakan oleh _*Owner Bot*_!',
+        mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
         premium: 'Perintah ini hanya untuk member _*Premium*_ !',
-        group: `Perintah ini hanya dapat digunakan di grup!`,
+        group: 'Perintah ini hanya dapat digunakan di grup!',
         private: 'Perintah ini hanya dapat digunakan di Chat Pribadi!',
         admin: 'Perintah ini hanya untuk *Admin* grup!',
         botAdmin: 'Jadikan bot sebagai *Admin* untuk menggunakan perintah ini!',
         unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Manusia.16*',
-        nsfw: `NSFW tidak aktif, Silahkan hubungi Team Bot Discussion untuk mengaktifkan fitur ini!`,
-        rpg: `RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan fitur ini!`,
         restrict: 'Fitur ini di *disable*!'
     }[type]
     if (msg) return conn.reply(m.chat, msg, m, { mentions: conn.parseMention(msg) })
