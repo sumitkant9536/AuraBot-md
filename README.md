@@ -2,24 +2,21 @@
 
 <a href = "https://github.com/FadliDarmawan/haruno-md"><img src = "https://cardivo.vercel.app/api?name=AuraBot-md&description=AuraBot,%20Bot%20WhatsApp%20multi%20device.%20Created%20by%20Nurutomo,%20BochilGaming,%20and%20RFIunknown.&image=http://telegra.ph/file/29f2d451412ae151a2dfb.jpg?cb=20200606024545&usqp=CAU&usqp=CAU&backgroundColor=%23ecf0f1&github=RFIunknown&pattern=topography&colorPattern=%23eaeaea"/><a>
 
-<a href="https://visitor-badge.glitch.me/badge?page_id=Fokusdotid/Family-MD"><img title="Visitor" src="https://visitor-badge.glitch.me/badge?page_id=Fokusdotid/Family-MD"></a>
-<a href="https://github.com/Fokusdotid/Family-MD/network/members"><img title="Forks" src="https://img.shields.io/github/forks/Fokusdotid/Family-MD?label=Forks&color=blue&style=flat-square"></a>
-<a href="https://github.com/Fokusdotid/Family-MD/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/Fokusdotid/Family-MD?label=Watchers&color=green&style=flat-square"></a>
-<a href="https://github.com/Fokusdotid/Family-MD/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/Fokusdotid/Family-MD?label=Stars&color=yellow&style=flat-square"></a>
-<a href="https://github.com/Fokusdotid/Family-MD/graphs/contributors"><img title="Contributors" src="https://img.shields.io/github/contributors/Fokusdotid/Family-MD?label=Contributors&color=blue&style=flat-square"></a>
-<a href="https://github.com/Fokusdotid/Family-MD/issues"><img title="Issues" src="https://img.shields.io/github/issues/Fokusdotid/Family-MD?label=Issues&color=success&style=flat-square"></a>
-<a href="https://github.com/Fokusdotid/Family-MD/issues?q=is%3Aissue+is%3Aclosed"><img title="Issues" src="https://img.shields.io/github/issues-closed/Fokusdotid/Family-MD?label=Issues&color=red&style=flat-square"></a>
-<a href="https://github.com/Fokusdotid/Family-MD/pulls"><img title="Pull Request" src="https://img.shields.io/github/issues-pr/Fokusdotid/Family-MD?label=PullRequest&color=success&style=flat-square"></a>
-<a href="https://github.com/Fokusdotid/Family-MD/pulls?q=is%3Apr+is%3Aclosed"><img title="Pull Request" src="https://img.shields.io/github/issues-pr-closed/Fokusdotid/Family-MD?label=PullRequest&color=red&style=flat-square"></a>
+<a href="https://visitor-badge.glitch.me/badge?page_id=RFIunknown/AuraBot-md"><img title="Visitor" src="https://visitor-badge.glitch.me/badge?page_id=Fokusdotid/Family-MD"></a>
+<a href="https://github.com/RFIunknown/AuraBot-md/network/members"><img title="Forks" src="https://img.shields.io/github/forks/RFIunknown/AuraBot-md?label=Forks&color=blue&style=flat-square"></a>
+<a href="https://github.com/RFIunknown/AuraBot-md/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/RFIunknown/AuraBot-md?label=Watchers&color=green&style=flat-square"></a>
+<a href="https://github.com/RFIunknown/AuraBot-md/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/RFIunknown/AuraBot-md?label=Stars&color=yellow&style=flat-square"></a>
+<a href="https://github.com/RFIunknown/AuraBot-md/graphs/contributors"><img title="Contributors" src="https://img.shields.io/github/contributors/RFIunknown/AuraBot-md?label=Contributors&color=blue&style=flat-square"></a>
+<a href="https://github.com/RFIunknown/AuraBot-md/issues"><img title="Issues" src="https://img.shields.io/github/issues/RFIunknown/AuraBot-md?label=Issues&color=success&style=flat-square"></a>
+<a href="https://github.com/RFIunknown/AuraBot-md/issues?q=is%3Aissue+is%3Aclosed"><img title="Issues" src="https://img.shields.io/github/issues-closed/RFIunknown/AuraBot-md?label=Issues&color=red&style=flat-square"></a>
+<a href="https://github.com/RFIunknown/AuraBot-md/pulls"><img title="Pull Request" src="https://img.shields.io/github/issues-pr/RFIunknown/AuraBot-md?label=PullRequest&color=success&style=flat-square"></a>
+<a href="https://github.com/RFIunknown/AuraBot-md/pulls?q=is%3Apr+is%3Aclosed"><img title="Pull Request" src="https://img.shields.io/github/issues-pr-closed/RFIunknown/AuraBot-md?label=PullRequest&color=red&style=flat-square"></a>
 
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Fokusdotid/Family-MD)
-## Join Group Diskusi
-[![BOT DISCUSSION GROUP](https://img.shields.io/badge/WhatsApp%20Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/Fm6gRtvuCDN9abXVlfekAK) 
-**NO BOT**
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/RFIunknown/AuraBot-md)
 
-## Grup Botnya
-[![BOT DISCUSSION GROUP](https://img.shields.io/badge/WhatsApp%20Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/BC3ZpPCD3khLhuEBNn47Ko)
+## Grup Bot
+[![BOT DISCUSSION GROUP](https://img.shields.io/badge/WhatsApp%20Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)]([https://chat.whatsapp.com/BC3ZpPCD3khLhuEBNn47Ko](https://chat.whatsapp.com/BKUUviabCwFIr9pIRe9iuE))
 
 ## UNTUK PENGGUNA WINDOWS/VPS/RDP
 
@@ -29,8 +26,8 @@
 * Unduh & Instal ImageMagick [`Klik Disini`](https://imagemagick.org/script/download.php)
 
 ```bash
-git clone https://github.com/Fokusdotid/Family-MD.git
-cd Family-MD
+git clone https://github.com/RFIunknown/AuraBot-md.git
+cd AuraBot-md
 npm i
 node .
 ```
@@ -47,8 +44,8 @@ $ apt update && upgrade -y
 $ pkg install ffmpeg
 $ pkg install nodejs-lts
 $ pkg install git
-$ git clone https://github.com/Fokusdotid/Family-MD.git
-$ cd Family-MD
+$ git clone https://github.com/RFIunknown/AuraBot-md.git
+$ cd AuraBot-md
 $ npm i
 $ node .
 ```
@@ -142,25 +139,8 @@ conn.logger.level = 'trace'
 ```js
 conn.logger.level = 'debug'
 ```
-#### Thanks To 
-**Allah SWT**,
-
-**Orang Tua**,
-
-**All Team Bot Discussion**,
-
-**Semua yang selalu mendukung**
 
 
 ##### Special Thanks to
 [![Nurutomo](https://github.com/Nurutomo.png?size=100)](https://github.com/Nurutomo)
 [![BochilGaming](https://github.com/BochilGaming.png?size=100)](https://github.com/BochilGaming)
-
-##### Penulis Ulang
-[![Fokus ID](https://github.com/fokusdotid.png?size=100)](https://github.com/fokusdotid)
-
-###### Collaborator
-
-[![RHns](https://github.com/imrhns.png?size=100)](https://github.com/imrhns)
-[![M imam Adi](https://github.com/adi-officiall.png?size=100)](https://github.com/adi-officiall)
-[![Aniq](https://github.com/aniq12.png?size=100)](https://github.com/aniq12)
