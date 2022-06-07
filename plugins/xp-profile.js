@@ -2,11 +2,11 @@ let PhoneNumber = require('awesome-phonenumber')
 let levelling = require('../lib/levelling')
 let fetch = require('node-fetch')
 let handler = async (m, { conn, usedPrefix }) => {
-  global.pp = 'https://i.ibb.co/gS0XrNc/avatar-contact.png'
+  let pp = './src/avatar_contact.png'
   let prefix = usedPrefix
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
   try {
-    pp = await conn.profilePictureUrl(who, 'image')
+    pp = await conn.getProfilePicture(who)
   } catch (e) {
 
   } finally {
@@ -38,4 +38,3 @@ handler.tags = ['xp']
 handler.command = /^(pp|profile|profil|propil)$/i
 handler.register = false
 module.exports = handler
-
