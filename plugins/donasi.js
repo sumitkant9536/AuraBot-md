@@ -18,7 +18,6 @@ let handler = async (m, { conn }) => {
 └────
 `
 await conn.send3ButtonImg(m.chat, await (await fetch('https://telegra.ph/file/a04269b1f8d8de7398e66.jpg')).buffer(), donasi.trim(), wm, `Owner`, `.owner`)
-user.pc = new Date * 1
   
 }
 handler.help = ['donasi']
